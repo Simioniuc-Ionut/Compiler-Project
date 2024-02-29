@@ -1,0 +1,18 @@
+In Global Type: float name: d value: 
+In Global Type: int name: f value: 
+Is defined in : fn_add2 Type: int name: helo value:
+Is defined in : main Type: int name: a value:10
+Is defined in : main Type: int name: b value:53
+Is defined in : main Type: float name: x value:3.500000
+Is defined in : main Type: float name: y value:2.000000
+Is defined in : main Type: bool name: p value:1
+Is defined in : main Type: bool name: q value:0
+Is defined in : main Type: int name: res1 value:116
+Is defined in : main Type: float name: res2 value:3.250000
+Is defined in : main Type: bool name: res3 value:1
+Is defined in : main Type: bool name: res5 value:0
+Is defined in : main Type: bool name: res6 value:1
+Is defined in : main Type: bool name: res7 value:1
+
+ ReturnType: int Fun_name:fn_add2
+Parameter Types: int float 
