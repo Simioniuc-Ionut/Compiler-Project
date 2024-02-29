@@ -1,0 +1,29 @@
+float d;
+int f ;
+
+int fn_add2(int f , float g){
+    int helo;
+};
+
+begin_progr
+int a := 10;
+int b := 53;
+float x := f3.5;
+float y := f2.0;
+bool p := true;
+bool q := false;
+
+int res1 := a + b * 2;
+float res2 := x / y + f1.5;
+
+bool res3 := p || q;
+bool res5 := p && q;
+
+bool res6 := true || false;
+
+bool res7 := res1 != b && true;
+
+int res8 := (3 + 3) * 5 - (4 - 1);
+
+
+end_progr

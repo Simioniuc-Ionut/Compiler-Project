@@ -1,0 +1,55 @@
+class cls_person{
+ int age;
+ float mlp;
+int vect2[] :={3,4};
+ cls_person int fn_add(int f , int g){
+    int c;   
+    const int constanta := 0+4; 
+    };
+};
+class cls_family{
+    int tata;
+    int mama;
+    cls_person float fn_add(int copil1, int copil2){
+    const int copil3 := 4;    
+    };
+};
+string frate200;
+int ggggg[] :={2,1,3,4,5};
+int fn_baby(int cla){
+    string cb;
+    int val := 3;
+    int vect[30];
+    int matri[2][30];
+    int vect2[] :={3,4};
+    int vect3[] := {100,2,7,8,5};
+};
+string fn_bbb(int c){
+    bool da;
+    cls_person obj1;
+    obj1.age;  
+};
+int fn_add2(int f , float g){
+    int helo;
+};
+int fn_fromclas(cls_family ala){
+    string ciao;
+};
+begin_progr
+int a := 1*3;
+int ffffff[300];
+fn_baby(4);
+fn_bbb(3);
+fn_add2(3,f2.5);
+cls_person obj;
+obj.age;
+obj.fn_add(3,2);
+obj.mlp;
+fn_add2(3,f2.5);
+@if(a>4){
+int bac;
+};
+@while(a>2){
+    string c;
+};
+end_progr
