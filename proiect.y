@@ -573,8 +573,7 @@ object_decl : CLASS_ID ID {/*cod pentru declararea unui obiect al clasei*/
                }
             ;
 object_usage :  obj_id field_or_method_call {
-               currentClass = nullptr; // Setează pointerul la nullptr după eliberarea memoriei
-                  /*// Cod pentru utilizarea unui câmp sau apelarea unei metode a obiectului*/}
+               currentClass = nullptr; }
              ;
 obj_id: ID '.'{
                //const char* className=scopeStack.top();          
@@ -699,25 +698,9 @@ apel_functie : FUN_ID '(' call_list ')' {
                         }
 
                     }
-                      //if(globalParamList.size()>0)
-                         
+                      //if(globalParamList.size()>0)                        
                      globalParamList.clear(); 
                }
-            /* | FUN_ID '('')'{
-                     const char * scope="";
-                     vector<const char*> paramTypes;
-
-                      string typeFunc = listSymbols.getTypeFunc(scope,$1,paramTypes,scope);
-                      if(typeFunc == ""){
-                              cout<<"Eror cant call inexistent fun"<<endl;
-                              $$=nullptr;
-                        }else{
-                         cout<<"Can call fun "<<$1<<endl;
-                         const char* returnType = typeFunc.c_str();
-                         $$=(char*)returnType;
-                        }
-                    
-             }*/
              ;
 
 list_param : param { listTypeParamQueue.push($1); printf("|%s|\n",$1);}
@@ -734,14 +717,10 @@ lista_valori : valoare {}
        | lista_valori ',' valoare{}
        ;
 
-valoare : NR_INT {/*std::string expresie = std::to_string($1); // 
-                    const char* plvar_stringm = expresie.c_str();
-                    $$=(char*)var_string;*/
+valoare : NR_INT {
                     listavalori.push_back($1);
                     }
-        | NR_FLOAT  {/* std::string expresie = std::to_string($1); // 
-                    const char* var_string = expresie.c_str();
-                    $$=(char*)var_string;*/
+        | NR_FLOAT  {
                     }
         ;
 
@@ -856,16 +835,6 @@ EXPR :
                     }
      | VARIABLE {$$=$1;}
      | PARANTEZA_DESCHISA EXPRESIE_ARIT PARANTEZA_INCHISA {$$=$2; }  
-        /*  | apel_functie {for(Expr* expr : globalParamList){
-                          delete expr; 
-                          expr=nullptr; }
-                        cout<<"S-a dealoc GPL"<<endl;
-                        /*
-                       Expr* newExpr = new Expr();
-                       strcpy(newExpr->type,$1);
-                       $$=newExpr;
-                      
-                        }*/
           //| array_usage {}
          // | object_usage
           ;
@@ -937,40 +906,14 @@ OP : PLUS  {$$='+';  infixExpr += '+';}
 
 EXPRESIE_BOOL : EXPR_BOOL{$$=$1;}
               | EXPR_BOOL OP_LOGIC  EXPRESIE_BOOL{
-              
-              /* if(strcmp($2,"&&")==0){
-                    bool rez = ($1 && $3);
-                    $$=rez;
-               }else if(strcmp($2,"||")==0){
-                     bool rez = ($1 || $3);
-                    $$=rez;
-               }else {
-                    yyerror("Error EXPR_BOOL");
-                    $$=false;
-               }
-               */
               }
               | VARIABLE OP_LOGIC VARIABLE {
-             
-               /*if(strcmp($2,"&&")==0){
-                    bool rez = ($1->boolvalue && $3->boolvalue);
-                    $$=rez;
-               }else if(strcmp($2,"||")==0){
-                    bool rez = ($1->boolvalue || $3->boolvalue);
-                    $$=rez;
-               }else {
-                    yyerror("Error EXPR_BOOL");
-                    $$=false;
-               }*/
               }
               | VARIABLE OP_LOGIC EXPRESIE_BOOL{
 
               }
               | EXPR_BOOL OP_LOGIC VARIABLE{}
-              /*else{
-                yyerror("Error different types EXPRESIE BOOL");
-                $$=false;
-              }*/
+
               ;
 EXPR_BOOL : BOOLEAN 
           {
@@ -984,55 +927,7 @@ EXPR_BOOL : BOOLEAN
           ;
 EXPR_COMP : EXPRESIE_ARIT OP_COMP EXPRESIE_ARIT 
           { 
-               //cout<<" dddd "<<endl;
-           /*bool value;
-            if(strcmp($1->type,$3->type)==0)
-            {  
-               string expr_type=$1->type;
-               if(strcmp($2,"<")==0){
-                    if(expr_type=="int"){
-                        value = $1->intvalue < $3->intvalue;
-                    }else if(expr_type =="float"){
-                        value = $1->floatvalue < $3->floatvalue;
-                    }
-
-               }else if(strcmp($2,"<=")==0){
-                    if(expr_type=="int"){
-                        value = $1->intvalue <= $3->intvalue;
-                    }else if(expr_type =="float"){
-                        value = $1->floatvalue <= $3->floatvalue;
-                    }     
-               }else if(strcmp($2,">")==0){
-                    if(expr_type=="int"){
-                        value = $1->intvalue > $3->intvalue;
-                    }else if(expr_type =="float"){
-                        value = $1->floatvalue > $3->floatvalue;
-                    }     
-               }else if(strcmp($2,">=")==0){
-                    if(expr_type=="int"){
-                        value = $1->intvalue >= $3->intvalue;
-                    }else if(expr_type =="float"){
-                        value = $1->floatvalue >= $3->floatvalue;
-                    }     
-               }else if(strcmp($2,"=")==0){
-                    if(expr_type=="int"){
-                        value = $1->intvalue = $3->intvalue;
-                    }else if(expr_type =="float"){
-                        value = $1->floatvalue = $3->floatvalue;
-                    }     
-               }else if(strcmp($2,"!=")==0){
-                     if(expr_type=="int"){
-                        value = $1->intvalue != $3->intvalue;
-                    }else if(expr_type =="float"){
-                        value = $1->floatvalue != $3->floatvalue;
-                    }   
-               }
-            }else{
-               yyerror("Error comp diferites typees");
-                     value=false;
-            }
-            cout<<"-- comp --"<<value<<endl;
-            $$=value;*/
+               
           }
           ;
 OP_COMP :  LESS     { $$ = "<";  infixExpr += "<"; }
@@ -1059,8 +954,7 @@ RIGHT_VALUE : EXPRESII //atribui tipul si valoarea lui right value
 
             if (type_expresie_curenta == "float" || type_expresie_curenta == "int" || type_left_value == "bool") {
                 cout << "Evaluare " << type_expresie_curenta << endl;
-                // Evitați utilizarea auto
-                // auto result;
+
                 Expr* resultExpr;
 
                 if (type_left_value == "int") {
