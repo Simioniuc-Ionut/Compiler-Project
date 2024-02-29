@@ -1,0 +1,54 @@
+Documentation for Custom Programming Language
+1. Language Features
+    Type Declarations
+    Predefined Types: int, float, char, string, bool
+    Array Types 
+    User Defined Data Types (similar to classes)
+    Initialization and Use of Variables
+    Accessing Fields and Methods
+    Declarations/Definitions
+    Variable Declarations/Definitions
+    Constant Definitions
+    Function Definitions
+    Control Statements
+    if, for, while, etc.
+    Assignment Statements (left_value = expression)
+    Expressions
+    Arithmetic Expressions
+    Boolean Expressions
+    Values: true and false
+    Function Calls with Parameters
+    Parameters: expressions, function calls, identifiers, constants, etc.
+    Predefined Functions
+    Eval(arg): Evaluates arithmetic or boolean expressions, float, bool, or int variables/literals.
+Program Structure
+    User Defined Data Types Section
+    Global Variables Section
+    Global Function Definitions Section
+    Special Function representing the Entry Point of the Program
+2. Symbol Table
+    For every input source program, includes:
+    Variable or Constant Identifiers Information
+    Type, Name, Value, Function/Class of Definition
+    Function Identifiers Information
+    Name, Returned Type, Formal Parameters' Types, Defining Class
+3. Semantic Analysis
+    Checks:
+    Variable and Function Definitions
+    Unique Variable Declarations
+    Operand Type Consistency
+    Assignment Type Compatibility
+    Function Call Parameter Types
+4. Evaluation
+    Abstract Syntax Trees (AST)
+    Intermediary representations for expressions
+    Evaluation for Arithmetic and Boolean Expressions
+    Type Evaluation
+    Member functions for evaluation
+    Evaluation Process
+    For assignment instructions (left_value = expr), AST is evaluated to compute left_value.
+    Returns the type of an expression
+    Ensures type consistency in expressions
+
+Additional Remarks
+ This documentation outlines the features, analysis, and evaluation methods of the custom programming language implemented using YACC/BISON and C/C++.
